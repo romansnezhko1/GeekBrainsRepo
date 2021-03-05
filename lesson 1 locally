@@ -1,0 +1,32 @@
+import UIKit
+
+// 1. Решить квадратное уравнение ax2 - с = 0
+
+let a = 10
+let cc = 5
+
+let x2 = cc / a
+
+print(x2)
+
+// 2. Даны катеты прямоугольного треугольника. Найти площадь, периметр и гипотенузу треугольника.
+
+var cat1 = 3 // катет 1
+var cat2 = 4 // катет 2
+var x = (cat1 * cat1 + cat2 * cat2)
+var gip = x/(x/2) // гипотенуза
+var s = cat1 * cat2 / 2 // площадь
+
+print("Гипотенуза равна: " + String(gip))
+print("Площадь равна: " + String(s))
+
+// 3. Пользователь вводит сумму вклада в банк и годовой процент. Найти сумму вклада через 5 лет.
+
+var sumUser = 10000
+var percent = 10
+
+    for i in 1...5 {
+        let sum = sumUser + (sumUser/percent)
+        print("Начислено: " + String(sum))
+}
+
