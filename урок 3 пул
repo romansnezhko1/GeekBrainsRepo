@@ -1,0 +1,71 @@
+import UIKit
+
+/*
+ 1. Описать несколько структур – любой легковой автомобиль SportCar и любой грузовик TrunkCar.
+ 2. Структуры должны содержать марку авто, год выпуска, объем багажника/кузова, запущен ли двигатель, открыты ли окна, заполненный объем багажника.
+ 3. Описать перечисление с возможными действиями с автомобилем: запустить/заглушить двигатель, открыть/закрыть окна, погрузить/выгрузить из кузова/багажника груз определенного объема.
+ 4. Добавить в структуры метод с одним аргументом типа перечисления, который будет менять свойства структуры в зависимости от действия.
+ 5. Инициализировать несколько экземпляров структур. Применить к ним различные действия.
+ 6. Вывести значения свойств экземпляров в консоль.
+*/
+
+enum CarEngineState{
+    case on, off
+}
+
+enum CarDoorState{
+    case open, close
+}
+class Car {
+    let color: UIColor
+    let brand: String
+    let numberOfDoors: Int
+    let numberOfWheels: Int
+    var engineState: CarEngineState
+    var doorState: CarDoorState
+
+    init(color: UIColor, brand: String, numberOfDoors: Int, numberOfWheels: Int, engineState: CarEngineState, doorState: CarDoorState) {
+        self.color = color
+        self.brand = brand
+        self.numberOfDoors = numberOfDoors
+        self.numberOfWheels = numberOfWheels
+        self.engineState = engineState
+        self.doorState = doorState
+    }
+
+    func openDoors() {
+        doorState = .open
+        print("Closed doors")
+    }
+    func closetDoors(){
+        doorState = .close
+    }
+}
+
+class SportCar: Car{
+    var maxSpeed: Int
+    init(maxSpeed: Int, color: UIColor, brand: String, numberOfDoors: Int, numberOfWheels: Int, engineState: CarEngineState, doorState: CarDoorState){
+        self.maxSpeed = maxSpeed
+        super.init(color: color, brand: brand, numberOfDoors: numberOfDoors, numberOfWheels: numberOfWheels, engineState: engineState, doorState: doorState)
+    }
+
+    override func openDoors() {
+        super.openDoors()
+        print("Закройте, пожалуйста, двери!")
+    }
+}
+
+class Truck: Car{
+    var fillTrunk: Bool
+    var heigtCabin: Double
+
+    init(fillTrunk: Bool, heigtCabin: Double, color: UIColor, brand: String, numberOfDoors: Int, numberOfWheels: Int, engineState: CarEngineState, doorState: CarDoorState){
+        self.fillTrunk = fillTrunk
+        self.heigtCabin = heigtCabin
+        super.init(color: color, brand: brand, numberOfDoors: numberOfDoors, numberOfWheels: numberOfWheels, engineState: engineState, doorState: doorState)
+    }
+}
+var car1 = SportCar(maxSpeed: 250, color: .black , brand: "BMW", numberOfDoors: 5, numberOfWheels: 4, engineState: .on, doorState: .open)
+print(car1.brand)
+print(car1.doorState)
+print(car1.openDoors())
