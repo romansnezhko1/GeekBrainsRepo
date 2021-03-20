@@ -11,25 +11,25 @@ enum Nitro{
     case nitroOn
     case nitroOff
 }
-enum luggage{
+enum Luggage {
     case trunkIsFull
-    case TrunkIsEmpty
+    case trunkIsEmpty
 }
-class Car{
+class Car {
     var brand: String
     var release: Int
-    init(brand: String, release: Int){
+    init(brand: String, release: Int) {
         self.brand = brand
         self.release = release
     }
 }
-class trunkCar: Car{
+class trunkCar: Car {
     var trunk: luggage
     init(brand: String, release: Int, trunk: luggage){
         self.trunk = trunk
         super.init(brand: brand, release: release)
     }
-    func trunkState(){
+    func trunkState() {
         if trunk == .trunkIsFull {
             print("Багажник полон")
         } else{
@@ -37,13 +37,13 @@ class trunkCar: Car{
         }
     }
 }
-class sportCar: Car{
+class sportCar: Car {
     var goFast: nitro
     init(brand: String, release: Int, goFast: nitro){
         self.goFast = goFast
         super.init(brand: brand, release: release)
     }
-    func nitroState(){
+    func nitroState() {
         if goFast == .nitroOn {
             print("Спортивная машина едет быстрее")
         } else{
