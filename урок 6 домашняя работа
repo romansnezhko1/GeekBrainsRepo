@@ -16,7 +16,7 @@ extension Journal: CustomStringConvertible {
 }
 
 
-struct queue <T> {
+struct Queue <T> {
     private var elements: [T] = []
 
     public var isEmpty: Bool {
@@ -55,7 +55,7 @@ struct queue <T> {
     }
 }
 
-extension queue {
+extension Queue {
     func myFilter(predicate:(T) -> Bool) -> [T] {
         var result = [T]()
         for i in elements {
@@ -67,7 +67,7 @@ extension queue {
     }
 }
 
-var pupil = queue<Journal>()
+var pupil = Queue<Journal>()
 pupil.enqueue(element: .init(name: "Alice", mark: 4))
 pupil.enqueue(element: .init(name: "John", mark: 5))
 pupil.enqueue(element: .init(name: "Jessie", mark: 5))
